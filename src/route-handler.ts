@@ -7,9 +7,10 @@ const handler: RouteHandler = async ({ cache, removeUpstreamResponseHeader, prox
   removeUpstreamResponseHeader('set-cookie') // The presence of a set-cookie header would prevent the response from being cached, so ensure set-cookie headers are removed.
   proxy('origin', { transformResponse: injectBrowserScript }) // inject browser.ts into the document returned from the origin
 
-  // convert absolute redirects to origin to relative
+  // Convert absolute redirects to origin to relative
   // so that the user isn't transferred to the origin.
-  updateResponseHeader('location', /https:\/\/www\.layer0\.co\//gi, '/')
+  // This can be disabled in prodcution after the DNS change
+  updateResponseHeader('location', /https:\/\/www\.aimsindustrial\.com\.au\//gi, '/')
 }
 
 export default handler

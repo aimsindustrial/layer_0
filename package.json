@@ -1,20 +1,31 @@
 {
-  "name": "cdn-starter-template",
+  "name": "aims-industrial",
   "scripts": {
     "start": "layer0 dev",
     "build": "layer0 build",
     "prod": "layer0 run --production",
     "deploy": "npm run build && layer0 deploy --skip-build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aimsindustrial/layer_0.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aimsindustrial/layer_0/issues"
+  },
+  "homepage": "https://github.com/aimsindustrial/layer_0#readme",
   "devDependencies": {
-    "@layer0/cli": "^4.2.3-next-1637272263-d46b7b091.0",
-    "@layer0/core": "^4.2.3-next-1637272263-d46b7b091.0",
-    "@layer0/devtools": "^4.2.3-next-1637272263-d46b7b091.0",
-    "@layer0/prefetch": "^4.2.3-next-1637272263-d46b7b091.0",
-    "@layer0/starter": "^4.2.3-next-1637272263-d46b7b091.0",
-    "@types/node": "^13.13.2",
-    "prettier": "^2.4.1",
-    "typescript": "^4.4.4"
+    "@layer0/cli": "^4.10.0",
+    "@layer0/core": "^4.10.0",
+    "@layer0/devtools": "^4.10.0",
+    "@layer0/prefetch": "^4.10.0",
+    "@layer0/starter": "^4.10.0",
+    "bufferutil": "^4.0.6",
+    "utf-8-validate": "^5.0.8",
+    "xxxxx": "^1.0.3"
   },
   "dependencies": {}
 }

@@ -9,14 +9,13 @@ export default new Router()
   
   // example routes for cacheable pages
   .get('/', routeHandler)
-  .get('/insights', routeHandler)
-  .get('/post/:path*', routeHandler)
+  .get('/welding/:path*', routeHandler)
   
   // example route for cacheable assets
-  // .match('/images/:path*', ({ cache, proxy }) => {
-  //  cache(CACHE_ASSETS)
-  //  return proxy('origin')
-  // })
+  .match('/assets/:path*', ({ cache, proxy }) => {
+   cache(CACHE_ASSETS)
+   return proxy('origin')
+  })
 
   // useful configs for generated outputs 
   .get('/service-worker.js', ({ cache, serviceWorker }) => {
@@ -28,10 +27,14 @@ export default new Router()
     return serveStatic('dist/browser.js')
   })
 
-  // fallback route for all other requests:
-  .fallback(({ proxy }) => {
+  // example route for non cacheable pages
+  // my account
+  .get('/_myacct', ({ proxy }) => {
     proxy('origin')
   })
+    
+  // fallback route for all other requests:
+  .fallback(routeHandler)
 
   //////////////////////////////////////////////////////////
   ////////// Static Prerendering examples //////////////////
