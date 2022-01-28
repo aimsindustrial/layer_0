@@ -1,0 +1,29 @@
+{
+  "name": "layer_0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aimsindustrial/layer_0.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aimsindustrial/layer_0/issues"
+  },
+  "homepage": "https://github.com/aimsindustrial/layer_0#readme",
+  "devDependencies": {
+    "@layer0/cli": "^4.10.0",
+    "@layer0/core": "^4.10.0",
+    "@layer0/devtools": "^4.10.0",
+    "@layer0/prefetch": "^4.10.0",
+    "bufferutil": "^4.0.6",
+    "utf-8-validate": "^5.0.8",
+    "xxxxx": "^1.0.3"
+  }
+}
