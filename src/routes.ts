@@ -9,7 +9,6 @@ export default new Router()
   
   // example routes for cacheable pages
   .get('/', routeHandler)
-  .get('/welding/:path*', routeHandler)
   
   // example route for cacheable assets
   .match('/assets/:path*', ({ cache, proxy }) => {
@@ -27,9 +26,17 @@ export default new Router()
     return serveStatic('dist/browser.js')
   })
 
-  // example route for non cacheable pages
-  // my account
-  .get('/_myacct', ({ proxy }) => {
+  // pages to perfect proxy
+  .match('/_mycart:cartpath?', ({ proxy, cache }) => {
+    cache({
+      edge: false
+    })
+    proxy('origin')
+  })
+  .match('/_myacct:accountpath?', ({ proxy, cache }) => {
+    cache({
+      edge: false
+    })
     proxy('origin')
   })
     
