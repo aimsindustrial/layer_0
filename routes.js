@@ -24,4 +24,13 @@ export default new Router()
   // })
 
   // send any unmatched request to origin
+
+    // Pages to perfect proxy
+  .match('/_mycart*', ({ proxy }) => {
+    proxy('origin')
+  })
+  .match('_myacct*', ({ proxy }) => {
+    proxy('origin')
+  })
+
   .fallback(({ proxy }) => proxy('origin'))
