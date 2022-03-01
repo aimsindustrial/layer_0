@@ -29,7 +29,7 @@ export default new Router()
   .match('/_mycart*', ({ proxy }) => {
     proxy('origin')
   })
-  .match('_myacct*', ({ proxy }) => {
+  .match('/_myacct*', ({ proxy }) => {
     proxy('origin')
   })
 
