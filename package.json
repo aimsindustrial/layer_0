@@ -27,5 +27,7 @@
     "utf-8-validate": "^5.0.8",
     "xxxxx": "^1.0.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "node-fetch": "^3.2.3"
+  }
 }
