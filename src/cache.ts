@@ -1,5 +1,6 @@
 const ONE_HOUR = 60 * 60
 const ONE_DAY = 24 * ONE_HOUR
+const ONE_WEEK = 7 * ONE_DAY
 
 /**
  * The default cache setting for pages
@@ -20,7 +21,7 @@ export const CACHE_PAGES = {
  */
 export const CACHE_ASSETS = {
     edge: {
-        maxAgeSeconds: ONE_DAY,
+        maxAgeSeconds: ONE_WEEK,
         forcePrivateCaching: true
     },
     browser: {
