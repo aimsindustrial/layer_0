@@ -26,14 +26,20 @@ export default new Router()
     return serveStatic('dist/browser.js')
   })
 
-  // pages to perfect proxy
-  .match('/_mycart:cartpath?', ({ proxy, cache }) => {
+  // pages to perfect proxy without caching
+  .match('/_mycart', ({ proxy, cache }) => {
     cache({
       edge: false
     })
     proxy('origin')
   })
-  .match('/_myacct:accountpath?', ({ proxy, cache }) => {
+  .match('/_myacct', ({ proxy, cache }) => {
+    cache({
+      edge: false
+    })
+    proxy('origin')
+  })
+  .match('/_cpanel', ({ proxy, cache }) => {
     cache({
       edge: false
     })
