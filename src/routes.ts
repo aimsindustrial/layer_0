@@ -2,6 +2,7 @@ import { Router } from '@layer0/core/router'
 import { starterRoutes } from '@layer0/starter'
 import { CACHE_ASSETS } from './cache'
 import routeHandler from './route-handler'
+import fetch from 'node-fetch'
 
 export default new Router()
   .use(starterRoutes)
@@ -9,11 +10,14 @@ export default new Router()
   
   // example routes for cacheable pages
   .get('/', routeHandler)
-  
-  // example route for cacheable assets
-  .match('/assets/:path*', ({ cache, proxy }) => {
-   cache(CACHE_ASSETS)
-   return proxy('origin')
+
+  // asset caching requires compute. Otherwise Neto throws 404s for some assets
+  .match('/assets/:path*', ({ cache, proxy, compute, removeUpstreamResponseHeader }) => {
+    cache(CACHE_ASSETS)
+    removeUpstreamResponseHeader('set-cookie')
+    compute(async request => {
+      return proxy('origin')
+    })
   })
 
   // useful configs for generated outputs 
