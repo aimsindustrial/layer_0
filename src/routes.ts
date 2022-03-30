@@ -49,6 +49,18 @@ export default new Router()
     })
     proxy('origin')
   })
+  .match('/_myacct/:accountpath*', ({ proxy, cache }) => {
+    cache({
+      edge: false
+    })
+    proxy('origin')
+  })
+  .match('/_cpanel/:cpanelpath*', ({ proxy, cache }) => {
+    cache({
+      edge: false
+    })
+    proxy('origin')
+  })
     
   // fallback route for all other requests:
   .fallback(routeHandler)
